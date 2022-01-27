@@ -1,0 +1,81 @@
+.header {
+    position: fixed;
+    width: 100%;
+    height: 52px;
+    align-items: flex-end;
+    z-index: 1;
+    .epic-bg {
+        box-shadow: rgba(0, 0, 0, 0.17) 0px -1px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -17px 30px 0px inset,
+            rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 0px 0px,
+            rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 3px 0px, rgba(0, 0, 0, 0.09) 0px 1px 0px,
+            rgba(0, 0, 0, 0.09) 0px 0 0;
+        padding: 15px;
+        border-radius: 15px;
+        background: #f0ce80;
+        margin-right: 70px;
+        margin-top: 10px;
+    }
+    a {
+        font-family: "IM Fell English SC", serif;
+        font-size: 30px;
+        text-decoration: none;
+        color: white;
+        -webkit-filter: drop-shadow(0px 4px 4px lightgoldenrodyellow) !important;
+        filter: drop-shadow(0px 4px 4px lightgoldenrodyellow);
+        &:hover {
+            cursor: pointer;
+            color: #706953;
+        }
+    }
+    .logo {
+        position: absolute;
+        left: 55px;
+        top: 5px;
+        width: 225px;
+        border-radius: 15px;
+        box-shadow: rgba(0, 0, 0, 0.17) 0px -1px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -17px 30px 0px inset,
+            rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 0px 0px,
+            rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 3px 0px, rgba(0, 0, 0, 0.09) 0px 1px 0px,
+            rgba(0, 0, 0, 0.09) 0px 0 0;
+        background: #f0ce80;
+        color: white;
+        &:hover {
+            cursor: pointer;
+        }
+        img {
+            width: 225px;
+            border-radius: 15px;
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .header {
+        .epic-bg {
+            margin-right: 0px;
+        }
+        a {
+            font-size: 20px !important;
+        }
+        .logo {
+            display: none;
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1025px) {
+    .header {
+        left: -20px;
+        .epic-bg {
+            margin-right: 0px;
+        }
+        a {
+            font-size: 30px !important;
+        }
+
+        .logo {
+            top: 10px;
+            width: 225px;
+        }
+    }
+}

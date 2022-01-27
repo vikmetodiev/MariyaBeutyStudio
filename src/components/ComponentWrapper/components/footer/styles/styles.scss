@@ -1,0 +1,113 @@
+.footer {
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+    background: #a9965e !important;
+    height: 200px !important;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: #dbd6a5;
+    text-align: center;
+    a {
+        text-decoration: underline;
+    }
+    .logo {
+        left: 55px;
+        top: 5px;
+        width: 50px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .icons {
+        color: #522b2bd4;
+        border: 1px solid black;
+        border-radius: 7px;
+        width: 36px;
+        font-size: 36px;
+        padding: 5px;
+        background: #ff0000b3;
+        margin: 5px;
+        transition: all 0.5s ease-in-out;
+        &:hover {
+            box-shadow: inset 0 -54px 0 black;
+            color: white;
+        }
+    }
+    .footer-title {
+        font-family: "Times New Roman", serif;
+        letter-spacing: 5px;
+        font-size: 30px;
+        font-weight: bold;
+        background-image: linear-gradient(
+            to right,
+            #462523 0,
+            #cb9b51 22%,
+            #f6e27a 45%,
+            #f6f2c0 50%,
+            #f6e27a 55%,
+            #cb9b51 78%,
+            #462523 100%
+        );
+        color: transparent;
+        -webkit-background-clip: text;
+    }
+
+    .footer-content {
+        justify-content: center;
+        display: flex;
+    }
+}
+
+#wave {
+    position: relative;
+    height: 70px;
+    width: 100%;
+    background: transparent;
+    top: -180px;
+}
+#wave:before {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 100% 50%;
+    width: 62%;
+    height: 144px;
+    background-color: #a9965e;
+    right: 0px;
+    top: 3px;
+}
+#wave:after {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 100% 50%;
+    width: 49%;
+    height: 86px;
+    background-color: #a9965e;
+    left: 0;
+    top: 19px;
+}
+
+@media only screen and (max-width: 767px) {
+    .footer {
+        height: 300px !important;
+        bottom: -80px;
+        .footer-content {
+            justify-content: center;
+            display: flow-root;
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1025px) {
+    .footer {
+        height: 250px !important;
+        .footer-content {
+            justify-content: center;
+            display: flow-root;
+        }
+    }
+}

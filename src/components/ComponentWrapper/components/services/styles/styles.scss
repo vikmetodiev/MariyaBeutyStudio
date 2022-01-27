@@ -1,0 +1,227 @@
+.css-10d9dml-MuiTabs-indicator {
+    background-color: transparent !important;
+}
+
+.css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
+    color: white !important;
+    filter: drop-shadow(0px 4px 4px lightgoldenrodyellow) !important;
+
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -1px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -17px 30px 0px inset,
+        rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 0px 0px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+        rgba(0, 0, 0, 0.09) 0px 3px 0px, rgba(0, 0, 0, 0.09) 0px 1px 0px, rgba(0, 0, 0, 0.09) 0px 0 0 !important;
+    padding: 15px;
+    border-radius: 15px !important;
+    background: #f0ce80 !important;
+}
+
+$font-google-primary: "https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap";
+$font-google-secondary: "https://fonts.googleapis.com/css2?family=Montserrat&display=swap";
+
+//- @type List
+$abril-fatface: "Abril Fatface", cursive;
+$montserrat: "Montserrat", sans-serif;
+
+//- Typography
+$base-font-family: $montserrat;
+$heading-font-family: $abril-fatface;
+
+$font-size-small: 0.875em;
+
+/*- Screen Sizes*/
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+/* COLOR HEX */
+$cadet: #4f6d7aff;
+$maximum-blue: #5ea5b8ff;
+$columbia-blue: #c0d6dfff;
+$platinum: #eaeaeaff;
+$cultured: #f3f3f3ff;
+$nero: #444444;
+
+/* COLOR Gradient */
+$dl-gradient-right: linear-gradient(90deg, rgba(0, 0, 0, 0.04) 20%, rgba(255, 255, 255, 0) 0%);
+
+$body-background-color: $platinum;
+$body-text-color: $nero;
+
+//- Global Functions
+/*import fonts*/
+@if variable-exists(font-google-primary) {
+    @import url($font-google-primary);
+}
+@if variable-exists(font-google-secondary) {
+    @import url($font-google-secondary);
+}
+
+//- Global Mixins
+
+/*media queries*/
+@mixin tablet {
+    @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: #{$desktop-width}) {
+        @content;
+    }
+}
+
+@mixin tablet-up {
+    @media (min-width: #{$tablet-width}) {
+        @content;
+    }
+}
+
+html {
+    box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: $body-background-color;
+    font-family: $base-font-family;
+    font-size: $font-size-small;
+    color: $body-text-color;
+    line-height: 1.5;
+}
+.dl-blurbs {
+    display: grid;
+    @include tablet-up {
+        gap: 2vw;
+    }
+}
+/* LIST */
+dl {
+    counter-reset: count;
+    background: $dl-gradient-right;
+    padding-left: 4vw; //default is smartphone
+    padding-right: 4vw;
+    margin: 0;
+    @include tablet-up {
+        padding-left: 2vw;
+    }
+    @include desktop {
+        padding-top: 2vw;
+        padding-bottom: 2vw;
+        padding-right: 2vw;
+    }
+}
+dl + dl {
+    counter-reset: counter 4;
+}
+dt {
+    counter-increment: count;
+    color: $cadet;
+    font-family: $base-font-family;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+dt::before {
+    content: counter(count, decimal-leading-zero) ".";
+    font-family: $heading-font-family;
+    color: $maximum-blue;
+    margin-left: -1vw;
+    padding-right: 12px;
+}
+
+dd {
+    margin-left: 5vw;
+    margin-bottom: 2vh;
+}
+
+.paper-bg {
+    strong {
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: -0.125rem;
+            left: -0.5rem;
+            right: -0.5rem;
+            height: 0.75rem;
+
+            // Position the line behind the text so that
+            // it is still easily readable
+            z-index: -1;
+
+            // The SVG is added as an SVG background image
+            background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/664131/underline.svg");
+            background-repeat: no-repeat;
+
+            // This allows the SVG to flex in size to fit
+            // any length of word. If the word is short,
+            // the SVG will be stretched vertically, if it
+            // is long, the SVG will be stretched horizontally.
+            // The jagged nature of this particular SVG works
+            // with this transforming.
+            background-size: cover;
+        }
+    }
+
+    p > strong {
+        font-weight: 400;
+
+        &::after {
+            // Specific positioning for smaller text
+            bottom: -0.2rem;
+            height: 0.5rem;
+            left: -0.25rem;
+            right: -0.25rem;
+        }
+    }
+
+    // ---------------------------------
+    // Other properties for the demo, not related to
+    // the underlined text
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    h1,
+    p {
+        font-family: "dosis", sans-serif;
+        max-width: 800px;
+        margin: 0 5% 1rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        font-weight: 600;
+    }
+
+    p {
+        font-size: 1.125rem;
+    }
+}
+
+.footer-title {
+    font-family: "Times New Roman", serif;
+    letter-spacing: 5px;
+    font-size: 30px;
+    font-weight: bold;
+    background-image: linear-gradient(
+        to right,
+        #462523 0,
+        #cb9b51 22%,
+        #f6e27a 45%,
+        #f6f2c0 50%,
+        #f6e27a 55%,
+        #cb9b51 78%,
+        #462523 100%
+    );
+    color: transparent;
+    -webkit-background-clip: text;
+}
